@@ -1,11 +1,8 @@
-// src/services/storage.ts
-
-export const saveData = (key: string, data: any): void => {
+export const saveData = (key: string, data: any) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 
-export const loadData = <T>(key: string): T[] => {
-  const raw = localStorage.getItem(key);
-  if (!raw) return [];
-  return JSON.parse(raw) as T[];
+export const loadData = (key: string) => {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : [];
 };
